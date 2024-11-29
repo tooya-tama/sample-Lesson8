@@ -1,0 +1,291 @@
+@charset "UTF-8";
+
+/*--- フォントサイズを100%で指定しておくことで、ユーザーがブラウザで設定したフォントサイズが正しく反映 ---*/
+html {
+  font-size: 100%;
+}
+body {
+  color: #24292e;
+}
+/*-- サイト内のリンクに下線が表示されないように設定 --*/
+a {
+  text-decoration: none;
+}
+/*-- 画像が画面の横幅からはみ出るのを防ぐためにmaxサイズを設定 --*/
+img {
+  max-width: 100%;
+}
+li {
+  list-style: none;
+}
+
+/*-- 画面の最大幅を指定するためのクラスです。共通クラスとして使用 --*/
+.wrapper {
+  max-width: 960px;
+  margin: 0 auto 130px auto;
+  font-size: 0.9rem;
+  padding: 0 4%;
+}
+/*-- h1タグ用のクラスです。ロゴに設定 --*/
+.site-title {
+  line-height: 1px;
+}
+/*-- h2タグ用のクラスです。各セクションの見出しで使用する共通クラス --*/
+.site-title a {
+  display: block;
+}
+.sec-title {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 65px;
+}
+
+/*-------------------------------------------
+ヘッダー
+-------------------------------------------*/
+/*-- 「display: flex;」でロゴとグローバルナビゲーションを横並びし、
+「justify-content: space-between;」で両端に配置
+「align-items: center;」で高さを中央でそろえます。
+画面幅を狭めた際に両サイドに余白ができるよう「padding: 0 4%;」を設定
+（※4%は「コーディング仕様」の「コンテンツ幅」で指定されている数値です。） --*/
+#header {
+  max-width: 960px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 270px;
+  margin: 0 auto;
+  padding: 0 4%;
+}
+/*-- 「display: flex;」でliタグ（メニュー）を横並びに配置 --*/
+#header ul {
+  display: flex;
+  padding: 10px 0;
+}
+#header li {
+  font-size: 0.9rem;
+  margin-left: 30px;
+}
+#header li a {
+  color: #24292e;
+}
+#header li a:hover {
+  opacity: 0.7;
+}
+#header li img.icon {
+  width: 20px;
+}
+
+/*-------------------------------------------
+Mainvisual
+-------------------------------------------*/
+#mainvisual {
+  margin-bottom: 80px;
+}
+/*-- 「max-width: 1920px;」で横幅の最大サイズを設定
+「height: 420px;」と「object-fit: cover;」を設定して、画像の高さを固定表示 --*/
+#mainvisual img {
+  width: 100%;
+  max-width: 1920px;
+  height: 420px;
+  object-fit: cover;
+}
+
+/*-------------------------------------------
+About
+-------------------------------------------*/
+#about ul {
+  margin-bottom: 30px;
+}
+/*-- 名前の下だけ余白を入れたいので、最初のliタグだけ「margin-bottom: 30px;」を設定 --*/
+#about li:first-child {
+  margin-bottom: 30px;
+}
+/*-- 「text-align:justify;」でテキストの両端が揃うようにします。
+（※特に長い文章の場合、justifyを設定することで文章の両端がそろい見た目が綺麗になります。） --*/
+#about p {
+  text-align:justify;
+}
+
+/*-------------------------------------------
+Works
+-------------------------------------------*/
+/*-- 画像用のリストです。「display: flex;」で横並びにし、「flex-wrap: wrap;」で横幅いっぱいまできた時に折り返されるようにします。
+「justify-content: space-between;」で左右の画像が両端に揃うようにします。 --*/
+#works ul {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+/*-- 「width: 31%;」で各画像の横幅を設定 --*/
+#works li {
+  width: 31%;
+  margin-bottom: 23px;
+}
+
+/*-------------------------------------------
+News
+-------------------------------------------*/
+/*-- 「display: flex;」で日付とニュースタイトルを横並びに配置
+さらに「flex-wrap: wrap;」で折り返し設定
+（そのままだと折り返し位置がおかしくなるので、dtタグ（日付）とddタグ（ニュースタイトル）の横幅が、
+あわせて100%になるようにそれぞれwidthを設定します。
+そうすると、ddタグできれいに折り返されます。） --*/
+#news dl {
+  display: flex;
+  flex-wrap: wrap;
+  border-top: solid 1px #c8c8c8;
+  margin-bottom: 20px;
+}
+/*-- 「width: 20%;」で日付の横幅を設定 --*/
+#news dt {
+  width: 20%;
+  border-bottom: solid 1px #c8c8c8;
+  padding: 15px;
+}
+/*-- 「width: 80%;」でニュースタイトルの横幅を設定 --*/
+#news dd {
+  width: 80%;
+  border-bottom: solid 1px #c8c8c8;
+  padding: 15px;
+}
+
+/*-------------------------------------------
+Contact
+-------------------------------------------*/
+/*-- 「display: flex;」でフォーム内のラベル（dt）と入力フィールド（dd）を横並びにします。
+dtとddの横幅が100%になったら折り返されるように「flex-wrap: wrap;」を設定します。 --*/
+#contact dl {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+#contact dt {
+  width: 15%;
+}
+#contact dd {
+  width: 85%;
+  margin-bottom: 10px;
+}
+/*-- 「width: 100%;」を設定して、入力フィールドが親要素いっぱいまで広がるようにします。
+ --*/
+#contact dd input,
+#contact dd textarea {
+  width: 100%;
+  border: solid 1px #c8c8c8;
+  padding: 10px;
+}
+#contact dd textarea {
+  height: 10rem;
+}
+#contact .button {
+  text-align: center;
+}
+/*-- 「width: 200px;」で横幅を設定します。マウスオーバー時に背景を白に変化させるため、ボタンが見えなくならないよう「border: solid 1px #24292e;」で枠線の設定をしておきます。
+ --*/
+#contact .button input {
+  width: 200px;
+  background-color: #24292e;
+  color: #fff;
+  padding: 15px 0;
+  border: solid 1px #24292e;
+}
+/*-- ボタンをマウスオーバーした際の背景とテキストカラーを設定します。 --*/
+#contact .button input:hover {
+  background: #fff;
+  color: #24292e;
+}
+
+/*-------------------------------------------
+フッター
+-------------------------------------------*/
+/*-- 背景、フォント、余白を設定して、「text-align: center;」で中央寄せにします。
+ --*/
+#footer {
+  background-color: #24292e;
+  color: #fff;
+  font-size: 0.5rem;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+/*-------------------------------------------
+SP
+-------------------------------------------*/
+@media screen and (max-width: 600px) {
+  .wrapper {
+    margin-bottom: 70px;
+  }
+  .site-title {
+    margin-top: 20px;
+  }
+  .sec-title {
+    margin-bottom: 40px;
+  }
+
+  /*-------------------------------------------
+  ヘッダー
+  -------------------------------------------*/
+  /*--「flex-direction: column;」でロゴとグローバルナビゲーションを縦に並べます。--*/
+  #header {
+    max-width: 100%;
+    height: auto;
+    flex-direction: column;
+  }
+  #header li {
+    font-size: 0.8rem;
+    margin-left: 20px;
+  }
+  /*--スマホの場合は、グローバルナビゲーションの左側に余白ができないよう、
+  メニューの最初の「margin-left」をゼロに設定--*/
+  #header li:first-child {
+    margin-left: 0;
+  }
+
+  /*-------------------------------------------
+  Works
+  -------------------------------------------*/
+  /*-- スマホの場合は、「flex-direction: column;」で縦に並べます。--*/
+  #works ul {
+    flex-direction: column;
+  }
+    /*-- スマホの場合は、「width: 100%;」で画像が横幅いっぱいまで広がる --*/
+  #works li {
+    width: 100%;
+  }
+
+  /*-------------------------------------------
+  News
+  -------------------------------------------*/
+  /*-- スマホの場合は、「flex-direction: column;」で日付とタイトルを縦に並べます。
+ --*/
+  #news dl {
+    flex-direction: column;
+  }
+  /*-- スマホの場合は、「width: 100%;」で全幅表示にします。 --*/
+  #news dt {
+    width: 100%;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  /*-- スマホの場合は、「width: 100%;」で全幅表示にします。 --*/
+  #news dd {
+    width: 100%;
+    padding-top: 0;
+  }
+
+  /*-------------------------------------------
+  Contact
+  -------------------------------------------*/
+  /*-- スマホの場合は、「flex-direction: column;」でラベルと入力フィールドが縦に並ぶようにします。--*/
+  #contact dl {
+    flex-direction: column;
+  }
+  #contact dt {
+    width: 100%;
+  }
+  #contact dd {
+    width: 100%;
+  }
+}
